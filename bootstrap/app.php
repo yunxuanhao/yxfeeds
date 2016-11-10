@@ -23,7 +23,7 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
-// $app->withFacades();
+ $app->withFacades();
 
 // $app->withEloquent();
 
@@ -59,13 +59,22 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
+ $app->middleware([
+    App\Http\Middleware\LoginMiddleware::class
+ ]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+ $app->routeMiddleware([
+     'login' => App\Http\Middleware\LoginMiddleware::class,
+ ]);
+
+$app->singleton('phpredis', function(){
+    $redis = new Redis;
+    $redis->pconnect('127.0.0.1'); //建立连接
+    $redis->select(1); //选择库
+    $redis->auth('xxxx'); //认证
+    return $redis;
+});
+unset($app->availableBindings['redis']);
 
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +90,8 @@ $app->singleton(
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+$app->register(TargetLiu\PHPRedis\PHPRedisServiceProvider::class);
+$app->register(TargetLiu\PHPRedis\Queue\QueueServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

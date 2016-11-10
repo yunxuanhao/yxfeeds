@@ -7,8 +7,8 @@ namespace Composer\Autoload;
 class ComposerStaticInit495721b5381b5bbfaa2f4e9974aaaa23
 {
     public static $files = array (
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
@@ -23,6 +23,10 @@ class ComposerStaticInit495721b5381b5bbfaa2f4e9974aaaa23
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
+        ),
+        'T' => 
+        array (
+            'TargetLiu\\PHPRedis\\' => 19,
         ),
         'S' => 
         array (
@@ -105,6 +109,10 @@ class ComposerStaticInit495721b5381b5bbfaa2f4e9974aaaa23
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'TargetLiu\\PHPRedis\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/targetliu/phpredis/src',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
@@ -308,6 +316,7 @@ class ComposerStaticInit495721b5381b5bbfaa2f4e9974aaaa23
     );
 
     public static $classMap = array (
+        'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_09_062942_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'ExampleTest' => __DIR__ . '/../..' . '/tests/ExampleTest.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',

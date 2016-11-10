@@ -3692,5 +3692,41 @@
             "test double",
             "testing"
         ]
+    },
+    {
+        "name": "targetliu/phpredis",
+        "version": "1.2.1",
+        "version_normalized": "1.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/TargetLiu/PHPRedis.git",
+            "reference": "24537a059361fb08c2dc08394d47439230b2d6b8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://packagist.phpcomposer.com/files/TargetLiu/PHPRedis/24537a059361fb08c2dc08394d47439230b2d6b8.zip",
+            "reference": "24537a059361fb08c2dc08394d47439230b2d6b8",
+            "shasum": ""
+        },
+        "require": {
+            "laravel/lumen-framework": "5.*.*"
+        },
+        "time": "2016-09-20 09:53:08",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "TargetLiu\\PHPRedis\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "TargetLiu",
+                "email": "os@targetliu.com",
+                "homepage": "http://targetliu.com"
+            }
+        ],
+        "description": "PhpRedis for Lumen 5.*"
     }
 ]
