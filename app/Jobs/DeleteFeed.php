@@ -4,15 +4,15 @@ namespace App\Jobs;
 
 class DeleteFeed extends Job
 {
-    protected $id;
+    protected $noisy_index;
 
     /**
      * FollowJob constructor.
-     * @param array $id
+     * @param array $noisy_index
      */
-    public function __construct($id)
+    public function __construct($noisy_index)
     {
-        $this->id = $id;
+        $this->noisy_index = $noisy_index;
     }
 
     /**
@@ -22,7 +22,7 @@ class DeleteFeed extends Job
      */
     public function handle()
     {
-        $id = $this->id;
+        $id = $this->noisy_index->id;
         app('db')->beginTransaction();
         if(app('db')->table('feed')->where('noisy_id',$id)->delete() && app('db')->table('noisy_delete')->where('noisy_id',$id)->update(['status' => 1])){
             app('db')->commit();

@@ -13,6 +13,7 @@ class ComposerStaticInit495721b5381b5bbfaa2f4e9974aaaa23
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         'bee9632da3ca00a99623b9c35d0c4f8b' => __DIR__ . '/..' . '/laravel/lumen-framework/src/helpers.php',
+        '59b99e9478d316ad476a6a80ddd3d7ee' => __DIR__ . '/../..' . '/app/Http/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (

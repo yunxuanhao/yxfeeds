@@ -14,20 +14,20 @@
 $app->get('/', function () use ($app) {
     return $app->version();
 });
-
-
-$app->group(['middleware' => 'auth' , 'namespace' => 'App\Http\Controllers'], function () use ($app) {
-
-    //===============================分割线===============================//
-
+$app->group(['middleware' => 'login' , 'namespace' => 'App\Http\Controllers'], function () use ($app) {
     //用户个人信息展示
     $app->get('user/{id}', 'UserController@show');
 
     //用户发布内容feed
     $app->get('user/{id}/timeline', 'UserController@timeline');
+});
 
+//限制登录才能访问
+$app->group(['middleware' => 'auth' , 'namespace' => 'App\Http\Controllers'], function () use ($app) {
+
+    //===============================分割线===============================//
     //用户关注信息feed
-    $app->get('user/{id}/feed', 'UserController@feed');
+    $app->get('feed', 'UserController@feed');
 
     //用户关注用户
     $app->post('follow', 'UserController@follow');

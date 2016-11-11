@@ -34,11 +34,11 @@ class NoisyController extends Controller
             app('db')->commit();
             dispatch(new AddFeed($id));
 
-            return $this->getResult();
+            return jsonResult();
         }else{
             app('log')->error('noisy create fail || '.json_encode(array_merge($data_index,$data)));
             app('db')->rollback();
-            return $this->getResult(false);
+            return jsonResult(false);
         }
     }
 
@@ -47,18 +47,18 @@ class NoisyController extends Controller
         $id = $request->input('id');
         $noisy_index = app('db')->table('noisy_index')->where('id',$id)->first();
         if($user->id != $noisy_index->uid){
-            return $this->getResult(false);
+            return jsonResult(10001);
         }
-        config()
+        
         app('db')->beginTransaction();
         if(app('db')->table('noisy')->where('id',$id)->delete() && app('db')->table('noisy_index')->where('id',$id)->delete() && app('db')->table('noisy_delete')->insert(['noisy_id' => $id])){
             app('db')->commit();
-            dispatch(new DeleteFeed($id));
-            return $this->getResult();
+            dispatch(new DeleteFeed($noisy_index));
+            return jsonResult();
         }else{
-            app('log')::error('noisy delete fail || '.json_encode($id));
+            app('log')->error('noisy delete fail || '.json_encode($id));
             app('db')->rollback();
-            return $this->getResult(false);
+            return jsonResult(false);
         }
     }
 }

@@ -1,34 +1,21 @@
 <?php
+/**
+ * Created by yx1@meitu.com
+ * Date: 16/11/11
+ * Time: 下午3:59
+ */
 
 namespace App\Models;
 
-use Illuminate\Auth\Authenticatable;
-use Laravel\Lumen\Auth\Authorizable;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class User extends Model implements AuthenticatableContract, AuthorizableContract
+class User extends Model
 {
-    use Authenticatable, Authorizable;
-
-    protected $table = 'user';
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email',
-    ];
-
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-    ];
+    public function getUserTimeline($id ,$onlyIds = false){
+        if($onlyIds){
+            $data = app('db')->table('noisy_index')->where('uid',$id)->pluck('id');
+        }else{
+            $data = app('db')->table('noisy_index')->where('uid',$id)->leftJoin('noisy','noisy_index.id','=','noisy.id')->get();
+        }
+       return $data;
+    }
 }

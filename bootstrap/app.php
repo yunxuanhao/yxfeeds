@@ -60,14 +60,16 @@ $app->singleton(
 */
 
  $app->middleware([
-    App\Http\Middleware\LoginMiddleware::class,
-     App\Http\Middleware\Authenticate::class,
+//    App\Http\Middleware\LoginMiddleware::class,
+//     App\Http\Middleware\Authenticate::class,
  ]);
 
  $app->routeMiddleware([
      'login' => App\Http\Middleware\LoginMiddleware::class,
      'auth' => App\Http\Middleware\Authenticate::class,
  ]);
+
+$app->configure('error');
 
 /*
 |--------------------------------------------------------------------------

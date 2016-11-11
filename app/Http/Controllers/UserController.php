@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 use App\Jobs\Follow;
 use App\Jobs\UnFollow;
 use Illuminate\Http\Request;
-use Illuminate\Queue\Queue;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -20,15 +17,23 @@ class UserController extends Controller
      */
     public function show($id){
         $results = app('db')->table('user')->where('id',$id)->first();
-        return $this->getResult($results);
+        return jsonResult($results);
     }
 
     public function timeline($id){
-
+        $user_model = User::getInstance();
+        $data = $user_model->getUserTimeline($id);
+        return jsonResult($data);
     }
 
-    public function feed($id){
+    public function feed(){
+        $user = app('auth')->user();
+        $noisy_ids = app('db')->table('feed')->where('uid',$user->id)->pluck('noisy_id');
+        $delete_ids = app('db')->table('noisy_delete')->where('status',0)->pluck('noisy_id');
+        $noisy_ids = array_diff($noisy_ids,$delete_ids);
+        $data = app('db')->table('noisy_index')->whereIn('noisy.id',$noisy_ids)->leftJoin('noisy','noisy_index.id','=','noisy.id')->get();
 
+        return jsonResult($data);
     }
 
     public function follow(Request $request){
@@ -43,18 +48,18 @@ class UserController extends Controller
         $follow_where = ['uid'=>$uid,'follow_id'=>$follow_id];
         $data = app('db')->table('follow')->where($follow_where)->first();
         if(!empty($data)){
-            return $this->getResult(false);
+            return jsonResult(false);
         }
 
         app('db')->beginTransaction();
         if(app('db')->table('follow')->insert($follow_data) && app('db')->table('followed')->insert($followed_data)){
             app('db')->commit();
             $this->dispatch(new Follow($follow_data));
-            return $this->getResult();
+            return jsonResult();
         }else{
             app('log')->error('follow fail || '.json_encode($follow_data));
             app('db')->rollback();
-            return $this->getResult(false);
+            return jsonResult(false);
         }
     }
 
@@ -71,11 +76,11 @@ class UserController extends Controller
             app('db')->commit();
             dispatch(new UnFollow($follow_data));
 
-            return $this->getResult();
+            return jsonResult();
         }else{
             app('log')->info('unfollow fail || '.json_encode($follow_data));
             app('db')->rollback();
-            return $this->getResult(false);
+            return jsonResult(false);
         }
     }
 }
