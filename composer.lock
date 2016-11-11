@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9c2a70e98021298ee2c854567a001f1b",
-    "content-hash": "44e1788d053a855f2a95bc634d958c1d",
+    "hash": "c0b430be0ba49fdab0d9d0470aa5b9f9",
+    "content-hash": "9942a255bac9233466939c284eea770e",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -883,6 +883,51 @@
             "time": "2016-10-03 16:31:01"
         },
         {
+            "name": "illuminate/redis",
+            "version": "v5.3.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/redis.git",
+                "reference": "dc5eb0e5629ad59c93504e5f26bb9d21f27b4fc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/illuminate/redis/dc5eb0e5629ad59c93504e5f26bb9d21f27b4fc2.zip",
+                "reference": "dc5eb0e5629ad59c93504e5f26bb9d21f27b4fc2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.3.*",
+                "illuminate/support": "5.3.*",
+                "php": ">=5.6.4",
+                "predis/predis": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Redis\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Redis package.",
+            "homepage": "https://laravel.com",
+            "time": "2016-08-09 01:38:33"
+        },
+        {
             "name": "illuminate/session",
             "version": "v5.3.16",
             "source": {
@@ -1429,16 +1474,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.3",
+            "version": "v2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "c0125896dbb151380ab47e96c621741e79623beb"
+                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/paragonie/random_compat/c0125896dbb151380ab47e96c621741e79623beb.zip",
-                "reference": "c0125896dbb151380ab47e96c621741e79623beb",
+                "url": "https://packagist.phpcomposer.com/files/paragonie/random_compat/a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e.zip",
+                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
                 "shasum": ""
             },
             "require": {
@@ -1473,7 +1518,57 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-10-17 15:23:22"
+            "time": "2016-11-07 23:38:38"
+        },
+        {
+            "name": "predis/predis",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nrk/predis.git",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/nrk/predis/f0210e38881631afeafb56ab43405a92cafd9fd1.zip",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Predis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Flexible and feature-complete Redis client for PHP and HHVM",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "predis",
+                "redis"
+            ],
+            "time": "2016-06-16 16:22:20"
         },
         {
             "name": "psr/log",
@@ -2057,38 +2152,51 @@
             "time": "2016-10-18 04:30:12"
         },
         {
-            "name": "targetliu/phpredis",
-            "version": "1.2.1",
+            "name": "tillkruss/laravel-phpredis",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/TargetLiu/PHPRedis.git",
-                "reference": "24537a059361fb08c2dc08394d47439230b2d6b8"
+                "url": "https://github.com/tillkruss/laravel-phpredis.git",
+                "reference": "741f3692941aaf68a3edf1b814f8f5fa0fbeedab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/TargetLiu/PHPRedis/24537a059361fb08c2dc08394d47439230b2d6b8.zip",
-                "reference": "24537a059361fb08c2dc08394d47439230b2d6b8",
+                "url": "https://packagist.phpcomposer.com/files/tillkruss/laravel-phpredis/741f3692941aaf68a3edf1b814f8f5fa0fbeedab.zip",
+                "reference": "741f3692941aaf68a3edf1b814f8f5fa0fbeedab",
                 "shasum": ""
             },
             "require": {
-                "laravel/lumen-framework": "5.*.*"
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "illuminate/cache": "~5.2",
+                "illuminate/redis": "~5.2",
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "TargetLiu\\PHPRedis\\": "src/"
+                    "TillKruss\\LaravelPhpRedis\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
-                    "name": "TargetLiu",
-                    "email": "os@targetliu.com",
-                    "homepage": "http://targetliu.com"
+                    "name": "Till Krüss",
+                    "homepage": "https://till.im"
                 }
             ],
-            "description": "PhpRedis for Lumen 5.*",
-            "time": "2016-09-20 09:53:08"
+            "description": "A Redis driver for Laravel and Lumen that works with PhpRedis, the PCEL Redis Extension.",
+            "keywords": [
+                "laravel",
+                "phpredis",
+                "redis"
+            ],
+            "time": "2016-08-14 01:09:34"
         },
         {
             "name": "vlucas/phpdotenv",

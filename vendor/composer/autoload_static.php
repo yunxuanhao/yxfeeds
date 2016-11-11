@@ -26,7 +26,7 @@ class ComposerStaticInit495721b5381b5bbfaa2f4e9974aaaa23
         ),
         'T' => 
         array (
-            'TargetLiu\\PHPRedis\\' => 19,
+            'TillKruss\\LaravelPhpRedis\\' => 26,
         ),
         'S' => 
         array (
@@ -44,6 +44,7 @@ class ComposerStaticInit495721b5381b5bbfaa2f4e9974aaaa23
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Predis\\' => 7,
         ),
         'M' => 
         array (
@@ -60,6 +61,7 @@ class ComposerStaticInit495721b5381b5bbfaa2f4e9974aaaa23
             'Illuminate\\Translation\\' => 23,
             'Illuminate\\Support\\' => 19,
             'Illuminate\\Session\\' => 19,
+            'Illuminate\\Redis\\' => 17,
             'Illuminate\\Queue\\' => 17,
             'Illuminate\\Pipeline\\' => 20,
             'Illuminate\\Pagination\\' => 22,
@@ -110,9 +112,9 @@ class ComposerStaticInit495721b5381b5bbfaa2f4e9974aaaa23
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
-        'TargetLiu\\PHPRedis\\' => 
+        'TillKruss\\LaravelPhpRedis\\' => 
         array (
-            0 => __DIR__ . '/..' . '/targetliu/phpredis/src',
+            0 => __DIR__ . '/..' . '/tillkruss/laravel-phpredis/src',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
@@ -158,6 +160,10 @@ class ComposerStaticInit495721b5381b5bbfaa2f4e9974aaaa23
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
+        'Predis\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/predis/predis/src',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -185,6 +191,10 @@ class ComposerStaticInit495721b5381b5bbfaa2f4e9974aaaa23
         'Illuminate\\Session\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/session',
+        ),
+        'Illuminate\\Redis\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/redis',
         ),
         'Illuminate\\Queue\\' => 
         array (

@@ -61,6 +61,12 @@ return [
             'connection' => env('CACHE_REDIS_CONNECTION', 'default'),
         ],
 
+        'phpredis' => [
+            'driver' => 'phpredis',
+            'connection' => 'default',
+        ],
+
+
     ],
 
     /*

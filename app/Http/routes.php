@@ -16,7 +16,7 @@ $app->get('/', function () use ($app) {
 });
 
 
-$app->group(['middleware' => 'login' , 'namespace' => 'App\Http\Controllers'], function () use ($app) {
+$app->group(['middleware' => 'auth' , 'namespace' => 'App\Http\Controllers'], function () use ($app) {
 
     //===============================分割线===============================//
 
