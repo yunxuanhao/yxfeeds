@@ -22,6 +22,7 @@ class UnFollow extends Job
      */
     public function handle()
     {
-
+        $follow_model = \App\Models\Follow::getInstance();
+        return $follow_model->deleteFollow($this->follow_data);
     }
 }

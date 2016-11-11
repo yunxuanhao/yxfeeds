@@ -28,6 +28,17 @@ class UserController extends Controller
 
     public function feed(){
         $user = app('auth')->user();
+        $follow_where = array(
+            'uid' => $user->id,
+            'status' => 0,
+        );
+        $follow_undone = app('db')->table('follow')->where($follow_where)->get();
+        if(!$follow_undone->isEmpty()){
+            $follow_model = \App\Models\Follow::getInstance();
+            foreach ($follow_undone as $follow_data){
+                $follow_model->addFollow($follow_data);
+            }
+        }
         $noisy_ids = app('db')->table('feed')->where('uid',$user->id)->pluck('noisy_id');
         $delete_ids = app('db')->table('noisy_delete')->where('status',0)->pluck('noisy_id');
         $noisy_ids = array_diff($noisy_ids,$delete_ids);

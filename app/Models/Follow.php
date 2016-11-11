@@ -39,4 +39,8 @@ class Follow extends Model
             return false;
         }
     }
+
+    public function unFollow(){
+
+    }
 }
