@@ -6,6 +6,7 @@
  */
 
 /**
+ * 错误码获取错误信息
  * @param $error_code
  * @return array
  */
@@ -23,6 +24,7 @@ function getError($error_code){
 }
 
 /**
+ * json格式返回结果
  * @param bool $data
  * @return \Illuminate\Http\JsonResponse
  */
@@ -38,4 +40,22 @@ function jsonResult($data = true){
         $data = getError($data);
     }
     return response()->json($data);
+}
+
+/**
+ * 验证邮箱格式
+ * @param $email
+ * @return bool
+ */
+function is_email($email){
+    return preg_match('/^[_.0-9a-z-a-z-]+@([0-9a-z][0-9a-z-]+.)+[a-z]{2,4}$/',$email);
+}
+
+/**
+ * 验证url格式
+ * @param $url
+ * @return int
+ */
+function is_url($url){
+    return preg_match('/(http|https):\/\/[a-zA-Z0-9\-]+(\.[a-zA-Z0-9]+)+([-A-Z0-9a-z_\$\.\+\!\*\(\)\/\,\:;@&=\?~#%]*)*/i', $url);
 }

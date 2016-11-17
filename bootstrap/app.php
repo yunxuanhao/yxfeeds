@@ -70,7 +70,7 @@ $app->singleton(
  ]);
 
 $app->configure('error');
-
+$app->configure('mail');
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
@@ -83,8 +83,10 @@ $app->configure('error');
 */
 
 // $app->register(App\Providers\AppServiceProvider::class);
+$app->register(Illuminate\Mail\MailServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(Illuminate\Redis\RedisServiceProvider::class);
+//$app->register(Illuminate\Encryption\EncryptionServiceProvider::class);
 //$app->register(TillKruss\LaravelPhpRedis\RedisServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 

@@ -20,6 +20,14 @@ $app->group(['middleware' => 'login' , 'namespace' => 'App\Http\Controllers'], f
 
     //用户发布内容feed
     $app->get('user/{id}/timeline', 'UserController@timeline');
+
+    //用户注册
+    $app->post('user/register', 'UserController@register');
+
+    //邮箱验证
+    $app->get('user/verify', 'UserController@verify');
+
+    //用户登录
 });
 
 //限制登录才能访问
