@@ -59,14 +59,18 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
+ $app->middleware([
+//    App\Http\Middleware\LoginMiddleware::class,
+//     App\Http\Middleware\Authenticate::class,
+ ]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+ $app->routeMiddleware([
+     'login' => App\Http\Middleware\LoginMiddleware::class,
+     'auth' => App\Http\Middleware\Authenticate::class,
+ ]);
 
+$app->configure('error');
+$app->configure('mail');
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
@@ -79,7 +83,11 @@ $app->singleton(
 */
 
 // $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
+$app->register(Illuminate\Mail\MailServiceProvider::class);
+$app->register(App\Providers\AuthServiceProvider::class);
+$app->register(Illuminate\Redis\RedisServiceProvider::class);
+//$app->register(Illuminate\Encryption\EncryptionServiceProvider::class);
+//$app->register(TillKruss\LaravelPhpRedis\RedisServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
 /*
