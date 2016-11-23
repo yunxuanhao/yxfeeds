@@ -30,7 +30,7 @@ function getError($error_code){
  */
 function jsonResult($data = true){
     if(is_object($data)){
-        $data = $data->toArray();
+        $data = json_decode(json_encode($data),true);
     }
     if($data === true){
         $data = array(

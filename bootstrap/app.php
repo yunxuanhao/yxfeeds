@@ -71,6 +71,7 @@ $app->singleton(
 
 $app->configure('error');
 $app->configure('mail');
+$app->configure('constants');
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
